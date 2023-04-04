@@ -39,11 +39,11 @@ yarn eslint .
 <!-- ### Deployment -->
 
 ## Resources
-- https://www.figma.com/file/l7SqJ3ZfkAKih9sFxvWSR4/Microverse-Student-Project-1?node-id=0%3A1
 - https://shopify.engineering/5-ways-to-improve-your-react-native-styling-workflow
-- https://stackoverflow.com/questions/69240150/how-to-use-multiple-navigators-in-react-native-version-6-x
 - https://blog.logrocket.com/splash-screen-react-native/
 - https://dev.to/lloyds-digital/how-to-add-a-splash-screen-to-a-react-native-app-the-easy-way-3ego
+- https://www.youtube.com/watch?v=3_ldEVWlL18&list=PLQWFhX-gwJbkETb0lfml7W8VvZb-Hc8oK&index=4
+- https://www.youtube.com/watch?v=1dcFNPA1sTw
 ## Authors
 
 👤 **Author1**

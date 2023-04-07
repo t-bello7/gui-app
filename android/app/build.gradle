@@ -97,11 +97,12 @@ android {
     defaultConfig {
         applicationId "com.guiapp"
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy 'react-native-camera', 'general'
+        multiDexEnabled true
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-    }
+    }    
 
     splits {
         abi {

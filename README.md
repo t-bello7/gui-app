@@ -2,7 +2,7 @@
 
 # Machine Learning Fruit and Leaf Classfication Graphical User Interface
 
-> An andriod application that serves as the graphical user interface for a fruit or Leaf classification Applicatio 
+> An andriod application that serves as the graphical user interface for a fruit or Leaf classification Application
 
 ## Built With
 
@@ -11,7 +11,10 @@
 - React Router 
 
 ## Figma file
-    https://www.figma.com/file/AQmhOnR5DXRRHAEwxUTkCn/iZone-Store?node-id=228%3A9061&t=OnTpNTkR6ahSXWeM-1
+-   https://www.figma.com/file/AQmhOnR5DXRRHAEwxUTkCn/iZone-Store?node-id=228%3A9061&t=OnTpNTkR6ahSXWeM-1
+-   https://www.behance.net/gallery/135439143/Food-Delivery-App?tracking_source=for_you_logged_in_feed_published
+-   https://www.behance.net/gallery/112714621/Woof-GPS-Dog-Tracker-App-Concept?tracking_source=for_you_logged_in_feed_published
+
 ## Live Demo (Coming Soon)
 
 [Live Demo Link]()

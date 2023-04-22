@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "fonts/nunito.ttf",
+      "sha1": "7f3ad3ffc0534a5ca001ebabff474fe5404e2bb8"
+    },
+    {
+      "path": "fonts/poppins.ttf",
+      "sha1": "52f9413b264e8ecefbbf12830e3dfadebbf72986"
+    },
+    {
+      "path": "fonts/roboto.ttf",
+      "sha1": "ba879317acdc045b8fa78cb8f948650627d0477c"
+    }
+  ]
+}

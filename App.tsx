@@ -47,7 +47,10 @@ const HomeStackNavigation = () => {
 
 const TabStackNavigation = () => {
   return (
-  <Tab.Navigator initialRouteName='scan'>
+  <Tab.Navigator screenOptions={{
+    headerShown: false,
+  }}
+  initialRouteName='history'>
     <Tab.Screen name="history" component={History} /> 
     <Tab.Screen name='scan' component={Scan} />
   </Tab.Navigator>
@@ -56,7 +59,7 @@ const TabStackNavigation = () => {
 
 const App = (): JSX.Element => {
 
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     SplashScreen.hide();

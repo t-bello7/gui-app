@@ -13,7 +13,6 @@
 ## Figma file
 -   https://www.figma.com/file/AQmhOnR5DXRRHAEwxUTkCn/iZone-Store?node-id=228%3A9061&t=OnTpNTkR6ahSXWeM-1
 -   https://www.behance.net/gallery/135439143/Food-Delivery-App?tracking_source=for_you_logged_in_feed_published
--   https://www.behance.net/gallery/112714621/Woof-GPS-Dog-Tracker-App-Concept?tracking_source=for_you_logged_in_feed_published
 
 ## Live Demo (Coming Soon)
 
@@ -47,6 +46,7 @@ yarn eslint .
 - https://dev.to/lloyds-digital/how-to-add-a-splash-screen-to-a-react-native-app-the-easy-way-3ego
 - https://www.youtube.com/watch?v=3_ldEVWlL18&list=PLQWFhX-gwJbkETb0lfml7W8VvZb-Hc8oK&index=4
 - https://www.youtube.com/watch?v=1dcFNPA1sTw
+- <a href="https://iconscout.com/icons/profile" target="_blank">Free Profile Icon</a> by <a href="https://iconscout.com/contributors/piqodesign">Piqo Design</a> on <a href="https://iconscout.com">IconScout</a>
 ## Authors
 
 👤 **Author1**

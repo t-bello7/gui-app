@@ -1,7 +1,5 @@
 const palette = {
-    purple: '#5A31F4',
     green: '#0ECD9D',
-    red: '#CD0E61',
     black: '#0B0B0B',
     white: '#F0F2F3',
     orange: '#FF6C44',
@@ -14,10 +12,8 @@ export const theme = {
       background: palette.lightGray,
       foreground: palette.black,
       white: palette.white,
-      primary: palette.purple,
+      primary: palette.orange,
       success: palette.green,
-      danger: palette.red,
-      failure: palette.red,
    },
    spacing: {
     s: 8,
@@ -35,6 +31,11 @@ export const theme = {
             fontFamily: 'Poppins',
             fontSize: 16
         }
+   },
+   breakPoints: {
+    smallPhone: 0,
+    phone: 321,
+    tablet: 768,
    }
 }
 
@@ -47,3 +48,26 @@ export const darkTheme = {
         foreground: palette.white
     }
 }
+
+
+// export const getBreakpointForScreenSize = ({theme: any, dimensions: any}) => {
+//     const sortedBreakpoints = Object.entries(theme.breakpoints).sort(
+//       (valA: any, valB: any) => {
+//         return valA[1] - valB[1]
+//       }
+//     )
+  
+//     return sortedBreakpoints.reduce((acc, [breakpoint, minWidth]) => {
+//       if (dimensions.width >= minWidth) return breakpoint
+//       return acc
+//     }, null)
+//   }
+  
+
+// export const getResponsiveValue = ({value, dimensions, theme}) => {
+//     if (typeof value === 'object') {
+//       return value[getBreakpointForScreenSize({theme, dimensions})]
+//     }
+//     return value
+//   }
+  

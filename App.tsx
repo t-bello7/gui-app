@@ -3,6 +3,7 @@ import Welcome from './app/pages/Welcome';
 import SplashScreen from 'react-native-splash-screen';
 import Scan from './app/pages/Scan';
 import History from './app/pages/History';
+import Home from './app/pages/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -12,11 +13,13 @@ import {theme, darkTheme} from './app/assets/theme';
 export type RootStackParamList = {
   welcome:  undefined,
   scan: undefined,
+  tab: undefined
 }
 
 type TabStackParamList = {
   scan: RootStackParamList,
-  history: undefined
+  history: undefined,
+  home: undefined
 }
 
 export type ThemeContextType = {
@@ -50,9 +53,10 @@ const TabStackNavigation = () => {
   <Tab.Navigator screenOptions={{
     headerShown: false,
   }}
-  initialRouteName='history'>
-    <Tab.Screen name="history" component={History} /> 
+  initialRouteName='home'>
+    <Tab.Screen name='home' component={Home} />
     <Tab.Screen name='scan' component={Scan} />
+    <Tab.Screen name="history" component={History} /> 
   </Tab.Navigator>
   )
 }

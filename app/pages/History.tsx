@@ -9,7 +9,7 @@ const History = () => {
     return (
       <View style={styles.container}>
         <Text style={styles.headline}>
-            Today,  ${moment().format("MMM Do YY")}
+            Today,  {moment().format("MMM DD YYYY")}
         </Text>
       </View>
     )   

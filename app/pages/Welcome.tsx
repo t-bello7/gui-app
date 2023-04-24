@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import Svg, { SvgXml } from 'react-native-svg';
+import { SvgXml } from 'react-native-svg';
 import { Text, Button, StyleSheet, View, Pressable, TextComponent } from 'react-native';
 import { RootStackParamList, ThemeContext } from '../../App';
 
@@ -12,7 +12,6 @@ type WelcomeNavigationProp = NativeStackNavigationProp<
 type Props = {
   navigation: WelcomeNavigationProp;
 };
-              // fill="url(#img1)"
 
 const svg = `<svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
               <defs>

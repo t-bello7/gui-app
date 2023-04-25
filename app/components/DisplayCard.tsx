@@ -21,11 +21,13 @@ const DisplayCard = (size: any) => {
 
 const getStyles = (theme: any, size: any) => StyleSheet.create({
     container: {
-        borderWidth: 1,
+        // borderWidth: 1,rr
         padding: 20,
-        width: size === 'half' ? '50%': '100%',
+        // width: size === 'half' ? '50%': '100%',
         height: 150,
-        borderRadius: 20
+        borderRadius: 20,
+        backgroundColor: theme.colors.background,
+        elevation: 3,
     }
 })
 

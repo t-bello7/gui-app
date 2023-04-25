@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Dimensions, Text, StyleSheet, View } from 'react-native';
 import { ThemeContext } from '../../App';
 import DisplayCard from '../components/DisplayCard';
 import moment from 'moment';
@@ -15,6 +15,16 @@ const profileSvg = `
     </g>
 </svg>
 `
+export const responsiveWidth = (width: any) => {
+    return (Dimensions.get('window').width * width) / widthMobileUI;
+  };
+  
+  export const responsiveHeight = (height : any) => {
+    return (Dimensions.get('window').height * height) / heightMobileUI;
+  };
+
+const heightMobileUI = 896;
+const widthMobileUI = 414;
 
 
 const Home = () => {
@@ -71,7 +81,9 @@ const getStyles = (theme: any) => StyleSheet.create({
     categories: {
         display: "flex",
         flexDirection: "row",
-        gap: 20
+        justifyContent: "space-between",
+        gap: 20,
+        width: '100%'
     },
     container: {
       display: "flex",
@@ -85,8 +97,8 @@ const getStyles = (theme: any) => StyleSheet.create({
       height: "100%",
     },
     profileImage: {
-        width: 60,
-        height: 60
+        width: responsiveWidth(60),
+        height: responsiveHeight(60)
     },
     headline: {
       fontWeight: '700',

@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { SvgXml } from 'react-native-svg';
-import { Text, Button, StyleSheet, View, Pressable, TextComponent } from 'react-native';
+import { Text, StyleSheet, View, Pressable } from 'react-native';
 import { RootStackParamList, ThemeContext } from '../../App';
+import IconButton from '../components/IconButton';
 
 type WelcomeNavigationProp = NativeStackNavigationProp<
   RootStackParamList
@@ -36,10 +37,15 @@ const nextSvg = `
     <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z"/>
 </svg>
 `
+
 const Welcome = () => {
   const navigation = useNavigation<WelcomeNavigationProp>();
   const theme = useContext(ThemeContext)
   const styles = getStyles(theme)
+  const handleNextPress = () => {
+    navigation.navigate('tab')
+  }  
+  
   return (
     <View style={styles.container}>
       <SvgXml xml={svg} />
@@ -49,11 +55,7 @@ const Welcome = () => {
       <Text style={styles.subheading}>
         Enjoy the ease of buying Quality fruits form the gui app
       </Text>
-      <Pressable style={styles.nextButton} onPress={() => navigation.navigate('tab')}>
-        <Text>
-          <SvgXml xml={nextSvg} />
-        </Text>
-      </Pressable>
+      <IconButton icon={nextSvg} handleOnPress={handleNextPress}/>
     </View>
   )
 }

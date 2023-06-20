@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Dimensions, Text, StyleSheet, View } from 'react-native';
 import { ThemeContext } from '../../App';
 import DisplayCard from '../components/DisplayCard';
+import Carousel from '../components/Carousel';
 import moment from 'moment';
 import { SvgXml } from 'react-native-svg';
 
@@ -26,6 +27,11 @@ export const responsiveWidth = (width: any) => {
 const heightMobileUI = 896;
 const widthMobileUI = 414;
 
+const carouselData = [
+  {
+    image: require('../assets/imgs/pineapple.jpg')
+  }
+]
 
 const Home = () => {
     const theme = useContext(ThemeContext)
@@ -38,24 +44,24 @@ const Home = () => {
             </View>
             <View>
                 <Text>
-                    Hi,    
+                {moment().format("MMMM DD")} 
                 </Text>
                 <Text style={styles.headline}>
-                    Today,  {moment().format("MMMM DD")}
+                    Eat Healthy Today
                 </Text>
             </View>
         </View>
         <View style={styles.banner_container}>
-            <DisplayCard /> 
+            <Carousel />
         </View>
 
         <View style={styles.categories_container}>
             <Text> Fruit Categories </Text>
             <View style={styles.categories}>
-                <DisplayCard size='half' />
-                <DisplayCard size='half' />
+                <DisplayCard size='half' name='Apples' />
+                <DisplayCard size='half' name='Banannas'/>
             </View>
-            <DisplayCard />
+            <DisplayCard name='Pea'/>
         </View>
       </View>
     )   

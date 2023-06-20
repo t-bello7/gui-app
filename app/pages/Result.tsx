@@ -1,16 +1,13 @@
 import { useContext } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, Image, View } from 'react-native';
 import { ThemeContext } from '../../App';
-import moment from 'moment';
 
-const History = () => {
+const Result = () => {
     const theme = useContext(ThemeContext)
     const styles = getStyles(theme)
     return (
       <View style={styles.container}>
-        <Text style={styles.headline}>
-            Today,  {moment().format("MMM DD YYYY")}
-        </Text>
+          <Image source={require('../assets/imgs/logo.png')} />
       </View>
     )   
 }
@@ -19,8 +16,11 @@ const getStyles = (theme: any) => StyleSheet.create({
     container: {
       display: "flex",
       flexDirection: "column",
+      marginTop: 30,
+      marginRight: 20,
+      marginLeft: 20,
       color: "black",
-      backgroundColor: theme.colors.background,
+    //   backgroundColor: theme.colors.background,
       fontFamily:"Poppins-Regular",
       height: "100%",
     },
@@ -30,4 +30,4 @@ const getStyles = (theme: any) => StyleSheet.create({
     }
   })
 
-export default History;
+export default Result;

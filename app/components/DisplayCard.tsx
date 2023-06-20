@@ -4,20 +4,19 @@ import Button  from './Button';
 import { ThemeContext } from '../../App';
 
 
-const DisplayCard = (size: any) => {
+const DisplayCard = ({size, name}: any) => {
     // size
     // width
     // on press
     const theme = useContext(ThemeContext)
-    const styles = getStyles(theme, size.size)
+    const styles = getStyles(theme, size)
     return(
     <View style={styles.container}>
-        <Text> Scan Fruits </Text>
+        <Text> {name} </Text>
         <Button />
     </View>
     )
 }
-
 
 const getStyles = (theme: any, size: any) => StyleSheet.create({
     container: {

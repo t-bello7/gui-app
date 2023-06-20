@@ -45,6 +45,7 @@ yarn eslint .
 - https://blog.logrocket.com/splash-screen-react-native/
 - https://dev.to/lloyds-digital/how-to-add-a-splash-screen-to-a-react-native-app-the-easy-way-3ego
 - https://www.youtube.com/watch?v=3_ldEVWlL18&list=PLQWFhX-gwJbkETb0lfml7W8VvZb-Hc8oK&index=4
+- https://www.kaggle.com/code/black9t/handling-tfhub-models-and-tfsavedmodels-formats
 - https://www.youtube.com/watch?v=1dcFNPA1sTw
 - <a href="https://iconscout.com/icons/profile" target="_blank">Free Profile Icon</a> by <a href="https://iconscout.com/contributors/piqodesign">Piqo Design</a> on <a href="https://iconscout.com">IconScout</a>
 ## Authors

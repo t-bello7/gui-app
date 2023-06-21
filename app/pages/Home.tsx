@@ -1,10 +1,18 @@
-import { useContext } from 'react';
-import { Dimensions, Text, StyleSheet, View } from 'react-native';
+import { useCallback, useContext, useRef } from 'react';
+import { Dimensions,
+  Text,
+  StyleSheet,
+  View,
+  useWindowDimensions,
+  Button,
+  } from 'react-native';
+import moment from 'moment';
+import { SvgXml } from 'react-native-svg';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeContext } from '../../App';
 import DisplayCard from '../components/DisplayCard';
 import Carousel from '../components/Carousel';
-import moment from 'moment';
-import { SvgXml } from 'react-native-svg';
+import BottomSheet from '../components/BottomSheet';
 
 const profileSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="profile">
@@ -43,36 +51,58 @@ const carouselData = [
 ]
 
 const Home = () => {
-    const theme = useContext(ThemeContext)
-    const styles = getStyles(theme)
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-            <View style={styles.profileImage}>
-                <SvgXml xml={profileSvg} />
-            </View>
-            <View>
-                <Text>
-                {moment().format("MMMM DD")} 
-                </Text>
-                <Text style={styles.headline}>
-                    Eat Healthy Today
-                </Text>
-            </View>
-        </View>
-        <View style={styles.banner_container}>
-            <Carousel data={carouselData} />
-        </View>
+    const theme = useContext(ThemeContext);
+    const { height } = useWindowDimensions();
+    const bottomSheetRef: any = useRef(null); 
+    const styles = getStyles(theme);
 
-        <View style={styles.categories_container}>
-            <Text> Fruit Categories </Text>
-            <View style={styles.categories}>
-                <DisplayCard size='half' name='Apples' />
-                <DisplayCard size='half' name='Banannas'/>
-            </View>
-            <DisplayCard name='Pea'/>
+    const openHandler = useCallback(() => {
+        bottomSheetRef.current?.expand();
+      }
+    ,[])
+
+    const closeHandler = useCallback(() =>  {
+        bottomSheetRef.current?.close();
+      }
+    , [])
+
+    return (
+      <GestureHandlerRootView>
+        <View style={styles.container}>
+          <View style={styles.header}>
+              <Button title='Open' onPress={() => {
+                openHandler();
+              }}/>
+              <Button title='close' onPress={() => {
+                closeHandler();
+              }}/>
+              <View style={styles.profileImage}>
+                  <SvgXml xml={profileSvg} />
+              </View>
+              <View>
+                  <Text>
+                  {moment().format("MMMM DD")} 
+                  </Text>
+                  <Text style={styles.headline}>
+                      Eat Healthy Today
+                  </Text>
+              </View>
+          </View>
+          <View style={styles.banner_container}>
+              <Carousel data={carouselData} />
+          </View>
+
+          <View style={styles.categories_container}>
+              <Text> Fruit Categories </Text>
+              <View style={styles.categories}>
+                  <DisplayCard size='half' name='Apples' />
+                  <DisplayCard size='half' name='Banannas'/>
+                  <DisplayCard name='Pea'/>
+              </View>
+          </View>
         </View>
-      </View>
+          <BottomSheet activeHeight={height * 0.5 } ref={bottomSheetRef}/>
+      </GestureHandlerRootView>
     )   
 }
 

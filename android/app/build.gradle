@@ -93,16 +93,15 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.guiapp"
+    namespace "com.more"
     defaultConfig {
-        applicationId "com.guiapp"
+        applicationId "com.more"
         minSdkVersion rootProject.ext.minSdkVersion
-        missingDimensionStrategy 'react-native-camera', 'general'
-        multiDexEnabled true
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
+        missingDimensionStrategy 'react-native-camera', 'general' // <--- insert this line
         versionName "1.0"
-    }    
+    }
 
     splits {
         abi {

@@ -30,6 +30,15 @@ const widthMobileUI = 414;
 const carouselData = [
   {
     image: require('../assets/imgs/pineapple.jpg')
+  },
+  {
+    image: require('../assets/imgs/pineapple.jpg')
+  },
+  {
+    image: require('../assets/imgs/pineapple.jpg')
+  },
+  {
+    image: require('../assets/imgs/pineapple.jpg')
   }
 ]
 
@@ -52,7 +61,7 @@ const Home = () => {
             </View>
         </View>
         <View style={styles.banner_container}>
-            <Carousel />
+            <Carousel data={carouselData} />
         </View>
 
         <View style={styles.categories_container}>

@@ -53,28 +53,20 @@ const carouselData = [
 const Home = () => {
     const theme = useContext(ThemeContext);
     const { height } = useWindowDimensions();
-    const bottomSheetRef: any = useRef(null); 
+    const bottomSheetRef: any = useRef(null);
     const styles = getStyles(theme);
 
     const openHandler = useCallback(() => {
         bottomSheetRef.current?.expand();
       }
     ,[])
-
-    const closeHandler = useCallback(() =>  {
-        bottomSheetRef.current?.close();
-      }
-    , [])
-
+    
     return (
       <GestureHandlerRootView>
         <View style={styles.container}>
           <View style={styles.header}>
               <Button title='Open' onPress={() => {
                 openHandler();
-              }}/>
-              <Button title='close' onPress={() => {
-                closeHandler();
               }}/>
               <View style={styles.profileImage}>
                   <SvgXml xml={profileSvg} />
@@ -101,7 +93,7 @@ const Home = () => {
               </View>
           </View>
         </View>
-          <BottomSheet activeHeight={height * 0.5 } ref={bottomSheetRef}/>
+        <BottomSheet activeHeight={height * 0.5 } ref={bottomSheetRef}/>
       </GestureHandlerRootView>
     )   
 }

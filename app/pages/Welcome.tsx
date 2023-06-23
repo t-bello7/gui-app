@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import Animated, {
@@ -59,16 +59,74 @@ const Welcome = () => {
   const handleNextPress = () => {
     navigation.navigate('tab')
   } 
-  const renderItem = ({item, index}: any) => {
+  const RenderItem = ({item, index}: any) => {
+    const imageAnimationStyle = useAnimatedStyle(() => {
+      const opacityAnimation = interpolate(
+        x.value,
+        [
+        (index-1) * SCREEN_WIDTH,
+        index * SCREEN_WIDTH,
+        (index+1) * SCREEN_WIDTH
+        ],
+        [0,1,0],
+        Extrapolate.CLAMP)
+
+        const translateYAnimation = interpolate(
+          x.value,
+          [
+          (index-1) * SCREEN_WIDTH,
+          index * SCREEN_WIDTH,
+          (index+1) * SCREEN_WIDTH
+          ],
+          [100,1,100],
+          Extrapolate.CLAMP
+        )
+      return {
+        opacity: opacityAnimation,
+        width: SCREEN_WIDTH * 0.8,
+        height: SCREEN_WIDTH * 0.8,
+        transform: [{translateY: translateYAnimation}]
+      }
+    });
+
+    const textAnimationStyle = useAnimatedStyle(() => {
+      const opacityAnimation = interpolate(
+        x.value,
+        [
+        (index-1) * SCREEN_WIDTH,
+        index * SCREEN_WIDTH,
+        (index+1) * SCREEN_WIDTH
+        ],
+        [0,1,0],
+        Extrapolate.CLAMP)
+
+        const translateYAnimation = interpolate(
+          x.value,
+          [
+          (index-1) * SCREEN_WIDTH,
+          index * SCREEN_WIDTH,
+          (index+1) * SCREEN_WIDTH
+          ],
+          [100,1,100],
+          Extrapolate.CLAMP
+        )
+      return {
+        opacity: opacityAnimation,
+        transform: [{translateY: translateYAnimation}]
+      }
+    });
+
     return (
       <View style={[styles.itemContainer, {width: SCREEN_WIDTH}]}>
-        <Image source={item.image} style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}/>
-        <View>
+        <Animated.Image source={item.image} style={imageAnimationStyle}/>
+        <Animated.View style={textAnimationStyle}>
           <Text style={styles.itemTitle}> {item.title} </Text>
           <Text style={styles.itemText}> {item.text} </Text>
-        </View>
+        </Animated.View>
+        {index === 2 &&
+        <IconButton icon={nextSvg} handleOnPress={handleNextPress}/>}
       </View>
-    )
+        )
   }
   return (
     <View style={styles.container}>
@@ -82,7 +140,7 @@ const Welcome = () => {
       <AnimatedFlatList
       onScroll={onScroll}
       data={data}
-      renderItem={renderItem} 
+      renderItem={({item, index}) => <RenderItem item={item} index={index} />} 
       keyExtractor={(item,i) => `${i}`}
       horizontal
       bounces={false}
@@ -91,7 +149,6 @@ const Welcome = () => {
       style={{display:'flex'}}
       showsHorizontalScrollIndicator={false}
       />
-      <IconButton icon={nextSvg} handleOnPress={handleNextPress}/>
     </View>
   )
 }

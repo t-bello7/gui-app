@@ -1,19 +1,26 @@
 import { useContext } from 'react';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import Animated, {
+  useSharedValue,
+  useAnimatedScrollHandler,
+  useAnimatedRef,
+  useAnimatedStyle,
+  interpolate,
+  Extrapolate
+} from 'react-native-reanimated';
 import { SvgXml } from 'react-native-svg';
-import { Text, StyleSheet, View, Pressable } from 'react-native';
+import { Text,Image, StyleSheet, View, FlatList, useWindowDimensions } from 'react-native';
 import { RootStackParamList, ThemeContext } from '../../App';
 import IconButton from '../components/IconButton';
+import data from '../assets/data/data';
 
 type WelcomeNavigationProp = NativeStackNavigationProp<
   RootStackParamList
   >;
-
 type Props = {
   navigation: WelcomeNavigationProp;
 };
-
 const svg = `<svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
               <defs>
                 <pattern xmlns="http://www.w3.org/2000/svg" id="img1" patternUnits="userSpaceOnUse" width="100%" height="100%">
@@ -31,35 +38,82 @@ const svg = `<svg id="visual" viewBox="0 0 900 600" width="900" height="600" xml
               </g>
               </svg>
               `
-
 const nextSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48">
     <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z"/>
 </svg>
 `
-
 const Welcome = () => {
+  const { width: SCREEN_WIDTH } = useWindowDimensions();
   const navigation = useNavigation<WelcomeNavigationProp>();
   const theme = useContext(ThemeContext)
+  const x  = useSharedValue(0);
+  const onScroll = useAnimatedScrollHandler({
+    onScroll: event => {
+      x.value = event.contentOffset.x;
+      // console.log(x.value)
+    }
+  });
   const styles = getStyles(theme)
   const handleNextPress = () => {
     navigation.navigate('tab')
-  }  
-  
+  } 
+  const renderItem = ({item, index}: any) => {
+    return (
+      <View style={[styles.itemContainer, {width: SCREEN_WIDTH}]}>
+        <Image source={item.image} style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}/>
+        <View>
+          <Text style={styles.itemTitle}> {item.title} </Text>
+          <Text style={styles.itemText}> {item.text} </Text>
+        </View>
+      </View>
+    )
+  }
   return (
     <View style={styles.container}>
-      <SvgXml xml={svg} />
+      {/* <SvgXml xml={svg} />
       <Text style={styles.headline}>
         Welcome to More!
       </Text>
       <Text style={styles.subheading}>
         Enjoy the ease of buying Quality fruits form the gui app
-      </Text>
+      </Text> */}
+      <FlatList
+      onScroll={onScroll}
+      data={data}
+      renderItem={renderItem} 
+      keyExtractor={item => item.id}
+      horizontal
+      bounces={false}
+      scrollEventThrottle={16}
+      pagingEnabled={true}
+      style={{display:'flex'}}
+      showsHorizontalScrollIndicator={false}
+      />
       <IconButton icon={nextSvg} handleOnPress={handleNextPress}/>
     </View>
   )
 }
 const getStyles = (theme: any) => StyleSheet.create({
+  itemContainer: {
+    // backgroundColor: 'red',
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  itemTitle: {
+    color: 'black',
+    textAlign: 'center',
+    marginBottom: 10,
+    fontSize: 22,
+    fontWeight: 'bold'
+  },
+  itemText: {
+    color: 'black',
+    textAlign: 'center',
+    lineHeight: 20,
+    marginHorizontal: 35
+  },
   container: {
     display: "flex",
     flexDirection: "column",

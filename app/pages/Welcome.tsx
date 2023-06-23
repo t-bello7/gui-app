@@ -21,6 +21,7 @@ type WelcomeNavigationProp = NativeStackNavigationProp<
 type Props = {
   navigation: WelcomeNavigationProp;
 };
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 const svg = `<svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
               <defs>
                 <pattern xmlns="http://www.w3.org/2000/svg" id="img1" patternUnits="userSpaceOnUse" width="100%" height="100%">
@@ -78,11 +79,11 @@ const Welcome = () => {
       <Text style={styles.subheading}>
         Enjoy the ease of buying Quality fruits form the gui app
       </Text> */}
-      <FlatList
+      <AnimatedFlatList
       onScroll={onScroll}
       data={data}
       renderItem={renderItem} 
-      keyExtractor={item => item.id}
+      keyExtractor={(item,i) => `${i}`}
       horizontal
       bounces={false}
       scrollEventThrottle={16}

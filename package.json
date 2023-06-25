@@ -10,13 +10,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@tensorflow/tfjs": "^4.5.0",
     "@tensorflow/tfjs-react-native": "^0.8.0",
     "deprecated-react-native-prop-types": "^4.1.0",
+    "expo-asset": "^8.9.1",
+    "expo-camera": "^13.2.1",
     "expo-cli": "^6.3.2",
+    "expo-gl": "^12.4.0",
+    "expo-modules-core": "^1.2.7",
     "moment": "^2.29.4",
     "react": "18.2.0",
     "react-native": "0.71.2",

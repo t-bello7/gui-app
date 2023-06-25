@@ -4,7 +4,6 @@
  *
  * @format
  */
-
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -14,4 +13,7 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    assetExts: ['bin', 'txt', 'jpg', 'png', 'ttf', 'jpeg']
+  }
 };
